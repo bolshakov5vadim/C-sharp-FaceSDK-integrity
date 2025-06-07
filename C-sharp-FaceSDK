@@ -48,7 +48,7 @@ class VideoRecognitionDemo
 			string config_dir = options.config_dir;
 			string license_dir = options.license_dir;
 			string database_dir = options.database_dir;
-			string method_config = options.method_config;
+			string method_config = options.method_config;//КОНФИГ VideoWorker
 			float recognition_far_threshold = options.recognition_far_threshold;
 			float frame_fps_limit = options.frame_fps_limit;
 			List<string> video_sources = new List<string>(options.video_sources);
@@ -79,13 +79,7 @@ class VideoRecognitionDemo
 			float recognition_distance_threshold = Convert.ToSingle(recognizer.getROCCurvePointByFAR(recognition_far_threshold).distance);
 
 			Capturer capturer = service.createCapturer("common_capturer_blf_fda_front.xml");
-			Database database = new Database(
-				database_dir,
-				recognizer,
-				capturer,
-				recognition_distance_threshold);
-			recognizer.Dispose();
-			capturer.Dispose();
+			//ПОГНАЛИ ГЛАВНЫЙ ОБЪЕКТ
 
 			//В этой библиотеке объект настраивается другим объектом-FacerecService.Config. 
       //FacerecService.Config vw_config = new FacerecService.Config("video_worker_fdatracker_blf_fda.xml");
@@ -108,7 +102,7 @@ class VideoRecognitionDemo
 						.emotions_estimation_threads_count(sources.Count)
 						.processing_threads_count(sources.Count)
 						.matching_threads_count(sources.Count));
-			video_worker.setDatabase(database.vwElements, Recognizer.SearchAccelerationType.SEARCH_ACCELERATION_1);
+			//video_worker.setDatabase// ВОТ ТАКОЙ ЕЩЕ МЕТОД ЕСТЬ
 
 
 			for(int i = 0; i < sources_names.Count; ++i)//ФУНКЦИЯ IMSHOW В ЦИКЛЕ
