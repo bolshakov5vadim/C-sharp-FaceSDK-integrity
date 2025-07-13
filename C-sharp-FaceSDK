@@ -39,20 +39,6 @@ class VideoRecognitionDemo
 	static int Main(string[] args)
 	{
 
-			// using Newtonsoft.Json;  
-			// using System.Text.Json;  
-			// Сериализовать объект C# в JSON  
-			// var person = new { Name = "John Doe", Age = 30 };  
-			// string json = JsonConvert.SerializeObject(person)
-
-			// string connectionString = "Server=your_server;Database=your_db;Uid=your_user;Pwd=your_pwd;";
-			// MySqlConnection connection = new MySqlConnection(connectionString).
-			// q = new MySqlCommand("SELECT * FROM admin WHERE admin_username=@val1 AND admin_password=PASSWORD(@val2)", 
-connection);
-			// q.Parameters.AddWithValue("@val1", UserName);
-			// q.Parameters.AddWithValue("@val2", Password);
-			// q.ExecuteNonQuery()
-
 			Console.WriteLine("");
 
 			Options options = new Options();//ОБЪЕКТ ConfigCTX, для создания 
