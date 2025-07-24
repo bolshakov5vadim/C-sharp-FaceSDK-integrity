@@ -6,12 +6,13 @@ using SimpleTODOLesson.Services.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 
 
+// Отправляем весь код в Builder
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IPostsService, PostsService>();
 builder.Services.AddSingleton<MyDataContext>();
 
 
-// Config DB from appsettings.json
+// БД из appsettings.json в Builder
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("local");
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var app = builder.Build();
 
+//Если не в режиме отладки, HTTPS
 if (!app.Environment.IsDevelopment())
 {
     app.UseHsts();
