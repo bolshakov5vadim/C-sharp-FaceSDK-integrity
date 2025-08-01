@@ -13,7 +13,7 @@ builder.Services.AddSingleton<MyDataContext>();
 
 
 // БД из appsettings.json в Builder
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("local");
     options.UseSqlServer(connectionString);
